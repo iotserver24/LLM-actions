@@ -70,6 +70,19 @@ E2B_API_KEY=your_e2b_api_key
 OPENAI_API_KEY=your_openai_api_key
 ```
 
+**Optional:** You can also set `OPENAI_BASE_URL` if you want to use a custom OpenAI-compatible endpoint:
+
+```env
+OPENAI_BASE_URL=https://your-custom-openai-endpoint.com/v1
+```
+
+This optional variable allows you to use:
+- Azure OpenAI services
+- OpenAI-compatible API proxies
+- Self-hosted OpenAI alternatives
+
+If not specified, the application will use OpenAI's official API endpoint by default.
+
 4. **Start the development server**
 ```bash
 npm run dev

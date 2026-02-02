@@ -58,7 +58,9 @@ export class OpenAIComputerStreamer
   constructor(desktop: Sandbox, resolutionScaler: ResolutionScaler) {
     this.desktop = desktop;
     this.resolutionScaler = resolutionScaler;
-    this.openai = new OpenAI();
+    this.openai = new OpenAI({
+      baseURL: process.env.OPENAI_BASE_URL || undefined,
+    });
     this.instructions = INSTRUCTIONS;
   }
 
