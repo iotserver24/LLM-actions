@@ -59,7 +59,7 @@ export class OpenAIComputerStreamer
     this.desktop = desktop;
     this.resolutionScaler = resolutionScaler;
     this.openai = new OpenAI({
-      baseURL: process.env.OPENAI_BASE_URL || undefined,
+      baseURL: process.env.OPENAI_BASE_URL?.trim() || undefined,
     });
     this.instructions = INSTRUCTIONS;
   }
