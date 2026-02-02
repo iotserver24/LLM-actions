@@ -14,6 +14,7 @@ import {
 import { ResolutionScaler } from "./resolution";
 import { ComputerAction, ToolInput } from "@/types/anthropic";
 import { logError } from "../logger";
+import { getAnthropicModelId } from "../config";
 
 const INSTRUCTIONS = `
 You are Surf, a helpful assistant that can use a computer to help the user with their tasks.
@@ -266,7 +267,7 @@ export class AnthropicComputerStreamer
         const modelResolution = this.resolutionScaler.getScaledResolution();
 
         const response = await this.anthropic.beta.messages.create({
-          model: "claude-3-7-sonnet-latest",
+          model: getAnthropicModelId(),
           max_tokens: 4096,
           messages: anthropicMessages,
           system: this.instructions,

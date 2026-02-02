@@ -83,6 +83,19 @@ This optional variable allows you to use:
 
 If not specified, the application will use OpenAI's official API endpoint by default.
 
+**Optional:** You can also set custom model IDs for OpenAI and Anthropic:
+
+```env
+OPENAI_MODEL_ID=computer-use-preview
+ANTHROPIC_MODEL_ID=claude-3-7-sonnet-latest
+```
+
+These optional variables allow you to:
+- Use different OpenAI models (default: `computer-use-preview`)
+- Use different Anthropic models (default: `claude-3-7-sonnet-latest`)
+
+If not specified, the application will use the default models listed above.
+
 4. **Start the development server**
 ```bash
 npm run dev

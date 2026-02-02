@@ -14,6 +14,7 @@ import {
 import { ActionResponse } from "@/types/api";
 import { logDebug, logError, logWarning } from "../logger";
 import { ResolutionScaler } from "./resolution";
+import { getOpenAIModelId } from "../config";
 
 const INSTRUCTIONS = `
 You are Surf, a helpful assistant that can use a computer to help the user with their tasks.
@@ -163,7 +164,7 @@ export class OpenAIComputerStreamer
       };
 
       let response = await this.openai.responses.create({
-        model: "computer-use-preview",
+        model: getOpenAIModelId(),
         tools: [computerTool],
         input: [...(messages as ResponseInput)],
         truncation: "auto",
@@ -247,7 +248,7 @@ export class OpenAIComputerStreamer
         };
 
         response = await this.openai.responses.create({
-          model: "computer-use-preview",
+          model: getOpenAIModelId(),
           previous_response_id: response.id,
           instructions: this.instructions,
           tools: [computerTool],
